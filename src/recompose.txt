@@ -1,0 +1,15 @@
+// Bread n' butter
+// withState
+// withHandlers
+// withStateHandlers
+// lifecycle
+// compose
+
+// Might come handy
+// branch
+// renameProp, renameProps
+
+// Because you want those perfs
+// shouldUpdate
+// pure,
+// onlyUpdateForKeys
