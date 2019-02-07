@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import useBeerRecipes from "./useBeerRecipes";
 
 import BeerForm from "./BeerForm";
