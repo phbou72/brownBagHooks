@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import classnames from "classnames";
 
 const TABS = ["List", "Add beer"];
@@ -16,7 +16,7 @@ const Tab = props => {
   );
 };
 
-const Tabs = props => {
+const Tabs = () => {
   const items = TABS.map(value => (
     <Tab key={value} text={value} selectedName="List" />
   ));

@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import useBeerRecipes from "./useBeerRecipes";
 
 import BeerForm from "./BeerForm";
@@ -18,21 +18,21 @@ function Header() {
 }
 
 function App() {
-    const { beerRecipes, addOne } = useBeerRecipes();
-    return (
-        <div className="App container">
-          <Header />
+  const { beerRecipes, addOne } = useBeerRecipes();
+  return (
+    <div className="App container">
+      <Header />
 
-          <div className="columns">
-            <div className="column">
-                <BeerTable beerRecipes={beerRecipes} />
-            </div>
-            <div className="column">
-                <BeerForm addOne={addOne} />
-            </div>
-          </div>
+      <div className="columns">
+        <div className="column">
+          <BeerTable beerRecipes={beerRecipes} />
         </div>
-    );
+        <div className="column">
+          <BeerForm addOne={addOne} />
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default App;

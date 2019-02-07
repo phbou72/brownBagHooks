@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import * as React from "react";
 
 const BeerRow = props => {
   const { name, ibu, contributed_by } = props;

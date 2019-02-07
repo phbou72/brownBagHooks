@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import * as React from "react";
+import { useState } from "react";
 
 const BeerForm = props => {
   const { addOne } = props;
@@ -61,7 +62,7 @@ const BeerForm = props => {
         <div className="control">
           <button
             className="button is-link"
-            onClick={e => {
+            onClick={_e => {
               addOne({
                 ibu,
                 name,

@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import { useReducer, useEffect } from "react";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -24,12 +24,12 @@ const fetchData = async setData => {
 };
 
 export default function useBeerRecipes() {
-    const [state, dispatch] = useReducer(reducer, {data: []});
+  const [state, dispatch] = useReducer(reducer, { data: [] });
 
   useEffect(() => {
-      if (state.data.length > 0) {
-          return;
-      };
+    if (state.data.length > 0) {
+      return;
+    }
     fetchData(data => dispatch({ type: "add", payload: data }));
   });
 
