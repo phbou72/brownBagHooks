@@ -27,9 +27,10 @@ export default function useBeerRecipes() {
     const [state, dispatch] = useReducer(reducer, {data: []});
 
   useEffect(() => {
-    if (state.data.length > 0) return null;
+      if (state.data.length > 0) {
+          return;
+      };
     fetchData(data => dispatch({ type: "add", payload: data }));
-    return null;
   });
 
   return {
