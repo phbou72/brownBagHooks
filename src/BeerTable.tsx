@@ -1,13 +1,15 @@
 import React from "react";
 
-interface IBeerRowProps {
-  name: string;
-  ibu: string;
-  contributed_by: string;
+import BeerRecipe from "./BeerRecipe";
+
+interface IBeerTableRowProps {
+  beerRecipe: BeerRecipe;
 }
 
-const BeerRow = (props: IBeerRowProps) => {
-  const { name, ibu, contributed_by } = props;
+const BeerTableRow = (props: IBeerTableRowProps) => {
+  const {
+    beerRecipe: { name, ibu, contributed_by }
+  } = props;
 
   return (
     <tr className="BeerRow">
@@ -20,10 +22,16 @@ const BeerRow = (props: IBeerRowProps) => {
 
 // https://api.punkapi.com/v2/beers?page=1&per_page=10
 
-// TODO Props
-const BeerTable = props => {
+interface IBeerTableProps {
+  beerRecipes: BeerRecipe[];
+}
+
+const BeerTable = (props: IBeerTableProps) => {
   const { beerRecipes } = props;
-  const rows = beerRecipes.map(beer => <BeerRow key={beer.name} {...beer} />);
+
+  const rows = beerRecipes.map(beerRecipe => (
+    <BeerTableRow key={beerRecipe.name} beerRecipe={beerRecipe} />
+  ));
 
   return (
     <div className="BeerTable">

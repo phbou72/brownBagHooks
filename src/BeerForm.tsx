@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 
-interface IBeerFormProps {}
+import { AddOneMethod } from "./useBeerRecipes";
+
+interface IBeerFormProps {
+  addOne: AddOneMethod;
+}
 
 const BeerForm = (props: IBeerFormProps) => {
   const { addOne } = props;
+
   const [name, setName] = useState("Brown Ale");
   const [ibu, setIbu] = useState("Brown Ale");
   const [contributed_by, setContributedBy] = useState("Brown Ale");
@@ -23,7 +28,7 @@ const BeerForm = (props: IBeerFormProps) => {
             name="name"
             type="text"
             value={name}
-            onChange={e => setName(e.currentTarget.value)}
+            onChange={e => setName(e.target.value)}
           />
         </div>
       </div>
@@ -39,7 +44,7 @@ const BeerForm = (props: IBeerFormProps) => {
             name="ibu"
             type="text"
             value={ibu}
-            onChange={e => setIbu(e.currentTarget.value)}
+            onChange={e => setIbu(e.target.value)}
           />
         </div>
       </div>
@@ -55,7 +60,7 @@ const BeerForm = (props: IBeerFormProps) => {
             name="contributed_by"
             type="text"
             value={contributed_by}
-            onChange={e => setContributedBy(e.currentTarget.value)}
+            onChange={e => setContributedBy(e.target.value)}
           />
         </div>
       </div>
