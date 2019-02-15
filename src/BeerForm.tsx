@@ -10,7 +10,7 @@ const BeerForm = (props: IBeerFormProps) => {
   const { addOne } = props;
 
   const [name, setName] = useState("Brown Ale");
-  const [ibu, setIbu] = useState("Brown Ale");
+  const [ibu, setIbu] = useState(75);
   const [contributed_by, setContributedBy] = useState("Brown Ale");
 
   return (
@@ -44,7 +44,7 @@ const BeerForm = (props: IBeerFormProps) => {
             name="ibu"
             type="text"
             value={ibu}
-            onChange={e => setIbu(e.target.value)}
+            onChange={e => setIbu(parseInt(e.target.value))}
           />
         </div>
       </div>
