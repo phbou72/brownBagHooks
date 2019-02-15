@@ -35,7 +35,6 @@ const BeerTable = props => {
             <th>Name</th>
             <th>IBU</th>
             <th>Contributed by</th>
-            <th>Details</th>
           </tr>
         </thead>
         <tbody>{rows}</tbody>
