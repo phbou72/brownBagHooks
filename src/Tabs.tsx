@@ -1,10 +1,14 @@
 import React from "react";
 import classnames from "classnames";
 
-const TABS = ["List", "Add beer"];
+interface ITabProps {
+  text: string;
+  selectedName: string;
+}
 
-const Tab = props => {
+const Tab = (props: ITabProps) => {
   const { text, selectedName } = props;
+
   const classes = classnames({
     "is-active": text === selectedName
   });
@@ -17,6 +21,8 @@ const Tab = props => {
 };
 
 const Tabs = () => {
+  const TABS = ["List", "Add beer"];
+
   const items = TABS.map(value => (
     <Tab key={value} text={value} selectedName="List" />
   ));

@@ -1,6 +1,12 @@
 import React from "react";
 
-const BeerRow = props => {
+interface IBeerRowProps {
+  name: string;
+  ibu: string;
+  contributed_by: string;
+}
+
+const BeerRow = (props: IBeerRowProps) => {
   const { name, ibu, contributed_by } = props;
 
   return (
@@ -8,15 +14,13 @@ const BeerRow = props => {
       <td>{name}</td>
       <td>{ibu}</td>
       <td>{contributed_by}</td>
-      <td>
-        <a href="#">show</a>
-      </td>
     </tr>
   );
 };
 
 // https://api.punkapi.com/v2/beers?page=1&per_page=10
 
+// TODO Props
 const BeerTable = props => {
   const { beerRecipes } = props;
   const rows = beerRecipes.map(beer => <BeerRow key={beer.name} {...beer} />);

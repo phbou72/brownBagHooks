@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 
-const BeerForm = props => {
+interface IBeerFormProps {}
+
+const BeerForm = (props: IBeerFormProps) => {
   const { addOne } = props;
   const [name, setName] = useState("Brown Ale");
   const [ibu, setIbu] = useState("Brown Ale");

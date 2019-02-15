@@ -1,6 +1,18 @@
 import { useReducer, useEffect } from "react";
 
-function reducer(state, action) {
+import BeerRecipe from "./BeerRecipe";
+
+interface State {
+  data: BeerRecipe[];
+}
+
+type SetDataAction = { type: "setData"; payload: BeerRecipe[] };
+type AddAction = { type: "add"; payload: BeerRecipe[] };
+type AddOneAction = { type: "addOne"; payload: BeerRecipe };
+
+type IAction = SetDataAction | AddAction | AddOneAction;
+
+function reducer(state: State, action: IAction) {
   switch (action.type) {
     case "setData":
       return { data: action.payload };
@@ -11,7 +23,9 @@ function reducer(state, action) {
   }
 }
 
-const fetchData = async setData => {
+const fetchData = async (
+  setData: (data: BeerRecipe[]) => (action: IAction) => void
+) => {
   try {
     const response = await fetch(
       "https://api.punkapi.com/v2/beers?page=1&per_page=10"
@@ -30,12 +44,12 @@ export default function useBeerRecipes() {
     if (state.data.length > 0) {
       return;
     }
-    fetchData(data => dispatch({ type: "add", payload: data }));
+    fetchData((data: BeerRecipe[]) => dispatch({ type: "add", payload: data }));
   });
 
   return {
     beerRecipes: state.data,
-    add: data => dispatch({ type: "add", payload: data }),
-    addOne: data => dispatch({ type: "addOne", payload: data })
+    add: (data: BeerRecipe[]) => dispatch({ type: "add", payload: data }),
+    addOne: (data: BeerRecipe[]) => dispatch({ type: "addOne", payload: data })
   };
 }
